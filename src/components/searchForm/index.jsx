@@ -33,7 +33,7 @@ const SearchForm = ({ queryApi }) => {
 
   return (
     <form onsubmit={submitHandler}>
-      <label for="dist">Favorite Color</label>
+      <label for="dist">Favorite color</label>
       <input
         class={style.block}
         type="text"

@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useState, useRef, useEffect } from "preact/hooks";
 import mapboxgl from "mapbox-gl";
+// This is a public key
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGFtaWFucml2YXMiLCJhIjoiY2t2dGVpbXQyN3Y2dTJ1cXBlZjBkMmR5eiJ9.vTcg1Pg5qcupvtViqewj2g";
 
@@ -17,7 +18,7 @@ const Map = () => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v10",
       center: [lng, lat],
       zoom: zoom,
       cooperativeGestures: true,

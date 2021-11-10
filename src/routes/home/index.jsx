@@ -9,6 +9,7 @@ const Home = () => {
   const [apiData, setApiData] = useState({});
 
   const queryApi = async (query) => {
+    // TODO: Retrieve API url from environment variables
     const usersApi = new URL("http://localhost:5000/users");
     for (let param in query) {
       usersApi.searchParams.set(param, query[param]);
