@@ -7,35 +7,49 @@ mapboxgl.accessToken =
 
 import style from "./style.scss";
 
-const Map = () => {
+const Map = ({ apiData }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
+  const [markers, setMarkers] = useState([]);
 
+  const { fav_color, dist, origin, min_age, max_age } = {
+    ...apiData?.metadata?.query,
+  };
+
+  // Load map
   useEffect(() => {
     if (map.current) return; // initialize map only once
+
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/dark-v10",
-      center: [lng, lat],
-      zoom: zoom,
+      center: [-122.2711, 37.8044],
+      zoom: 8,
       cooperativeGestures: true,
     });
   });
 
+  // Draw markers onto map
   useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
-    map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
+    if (!map.current) return; // Only run if map is loaded
+    markers.forEach(marker => marker.remove());
+
+    const newMarkers = [];
+    apiData?.results?.forEach(res => {
+      res?.locationHistory?.features.forEach(feature => {
+        newMarkers.push(
+          new mapboxgl.Marker({ color: "pink" })
+            .setLngLat([-122.2711, 37.8044])
+            .setLngLat(feature.geometry.coordinates)
+            .addTo(map.current)
+        );
+      });
     });
-  });
+    setMarkers(newMarkers);
+  }, [fav_color, dist, origin, min_age, max_age]);
 
   return (
-    <div>
+    <div class={style.container}>
       <div ref={mapContainer} class={style["map-container"]} />
     </div>
   );

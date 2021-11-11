@@ -8,7 +8,7 @@ import Map from "../../components/map";
 const Home = () => {
   const [apiData, setApiData] = useState({});
 
-  const queryApi = async (query) => {
+  const queryApi = async query => {
     // TODO: Retrieve API url from environment variables
     const usersApi = new URL("http://localhost:5000/users");
     for (let param in query) {
@@ -17,13 +17,14 @@ const Home = () => {
     const url = usersApi.toString();
     const data = await fetch(url);
     const dataJson = await data.json();
+    console.log(dataJson);
     setApiData(dataJson);
   };
 
   return (
     <main class={style.home}>
       <SearchForm queryApi={queryApi} />
-      <Map />
+      <Map apiData={apiData} />
     </main>
   );
 };

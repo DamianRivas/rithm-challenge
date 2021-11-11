@@ -1,10 +1,12 @@
+$max-width: 500px;
+
 form {
   padding: 20px;
-  max-width: 500px;
-  margin: 42px auto;
+  max-width: $max-width;
+  margin: 0px auto 42px;
   background-color: #454545;
 
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: $max-width) {
     border-radius: 10px;
   }
 
