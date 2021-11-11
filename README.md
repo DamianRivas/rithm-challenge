@@ -1,4 +1,29 @@
-# client
+# Rithm API Challenge Client
+
+The client for my submission for the API technical challenge provided by Rithm. Check out the backend [here](https://github.com/DamianRivas/rithm-challenge-api)
+
+## Project Setup
+
+1. Clone the application and `cd` into the project directory
+
+2. Install dependencies:
+
+```console
+npm i
+```
+
+3. Copy the contents of `.sample.env` into a `.env` file
+```console
+cat .sample.env > .env
+```
+
+4. Populate the `.env` file with your [mapbox](https://www.mapbox.com/) API key and URL to a running [backend](https://github.com/DamianRivas/rithm-challenge-api) server (without a trailing slash)
+
+5. Start a local dev server
+
+```console
+npm run dev
+```
 
 ## CLI Commands
 
