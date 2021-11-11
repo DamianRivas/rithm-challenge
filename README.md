@@ -50,5 +50,10 @@ For detailed explanation on how things work, checkout the [CLI Readme](https://g
 
 * Re-center the map with the help of [Geolib](https://www.npmjs.com/package/geolib) whenever new API results are retrieved
 * Support API pagination
+* Validate query parameters at the client level
+  * Reimplement form inputs (e.g., separate numeric inputs for latitude and longitude)
 * Performance
   * Async load Mapbox
+  * Generate map markers in a [symbol layer](https://docs.mapbox.com/help/getting-started/add-markers/#approach-1-adding-markers-inside-a-map) to support hundreds of markers
+* CRUD
+  * New features allowing you to check-in your location to the database
