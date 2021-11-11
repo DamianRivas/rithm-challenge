@@ -2,8 +2,7 @@ import { h } from "preact";
 import { useState, useRef, useEffect } from "preact/hooks";
 import mapboxgl from "mapbox-gl";
 // This is a public key
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiZGFtaWFucml2YXMiLCJhIjoiY2t2dGVpbXQyN3Y2dTJ1cXBlZjBkMmR5eiJ9.vTcg1Pg5qcupvtViqewj2g";
+mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
 import style from "./style.scss";
 
