@@ -4,6 +4,9 @@
       "presets": [
         ["preact-cli/babel", { "modules": "commonjs" }]
       ]
+    },
+    "production": {
+      "compact": false
     }
   }
 }
