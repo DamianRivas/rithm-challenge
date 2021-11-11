@@ -17,7 +17,6 @@ const Home = () => {
     const url = usersApi.toString();
     const data = await fetch(url);
     const dataJson = await data.json();
-    console.log(dataJson);
     setApiData(dataJson);
   };
 

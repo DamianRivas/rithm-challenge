@@ -2,8 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 import { DefinePlugin } from "webpack";
 
-console.log("DOTENV WORKING?", process.env.API_URL, process.env.MAPBOX_API_KEY);
-
 export default {
   webpack(config, env, helpers, options) {
     config.plugins.push(
